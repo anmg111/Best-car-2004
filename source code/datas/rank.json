@@ -1,0 +1,228 @@
+
+
+[
+	{
+		"category": "money saving dealer",
+		"data": [
+					{
+						"rank":1,
+						"text":"suzuki",
+						"img":"Suzuki-logo-3.jpg"
+					},
+					{
+						"rank":2,
+						"text":"kia",
+						"img":"lg-kia.png"
+					},
+					{
+						"rank":3,
+						"text":"toyota",
+						"img":"images.png"
+					}
+				]
+	},
+	{
+		"category": "cheapest car",
+		"data": [
+					{
+						"rank":1,
+						"text":"Kia Rio 4dr manual",
+						"img":"kia rio.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Hyundai Accent 2dr hatch",
+						"img":"accent.jpg"
+					},
+					{
+						"rank":3,
+						"text":"Toyota Echo 2dr manual",
+						"img":"echo.jpg"
+					}
+				]
+	},
+	{
+		"category": "most expensive car",
+		"data": [
+					{
+						"rank":1,
+						"text":"Porsche 911 GT2 2dr",
+						"img":"911.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Mercedes-Benz CL600 2dr",
+						"img":"cl600.jpg"
+					},
+					{
+						"rank":3,
+						"text":"Mercedes-Benz SL600 convertible 2dr",
+						"img":"sl600.jpg"
+					}
+				]
+	},
+	
+	{
+		"category": "best performance car",
+		"data": [
+					{
+						"rank":1,
+						"text":"Porsche 911 GT2 2dr",
+						"img":"911.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Mercedes-Benz SL55 AMG 2dr",
+						"img":"sl600.jpg"
+					},
+					{
+						"rank":3,
+						"text":"Audi RS 6 4dr",
+						"img":"rs6.jpg"
+					}
+				]
+	},
+	{
+		"category": "fuel saver",
+		"data": [
+					{
+						"rank":1,
+						"text":"Honda Insight 2dr (gas/electric)",
+						"img":"insight.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Toyota Prius 4dr (gas/electric)",
+						"img":"prius.jpg"
+					},
+					{
+						"rank":3,
+						"text":"Honda Civic Hybrid 4dr manual (gas/electric)",
+						"img":"civic.jpg"
+					}
+				]
+	},
+	
+	{
+		"category": "best budget daily comute",
+		"data": [
+					{
+						"rank":1,
+						"text":"Toyota Echo",
+						"img":"echo.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Scion xA 4dr hatch",
+						"img":"xa.jpg"
+					},
+					{
+						"rank":3,
+						"text":"Honda Civic DX 2dr",
+						"img":"civic.jpg"
+					}
+				]
+	},
+	{
+		"category": "best budget family car",
+		"data": [
+					{
+						"rank":1,
+						"text":"Toyota Camry Solara SE 2dr",
+						"img":"camry.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Chevrolet Impala 4dr",
+						"img":"impala.jpg"
+					},
+					{
+						"rank":3,
+						"text":"Dodge Intrepid SE 4dr",
+						"img":"interpid.jpg"
+					}
+				]
+	},
+	{
+		"category": "best budget sport car",
+		"data": [
+					{
+						"rank":1,
+						"text":"Toyota Celica GT-S 2dr",
+						"img":"celica.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Nissan 350Z coupe 2dr",
+						"img":"350z.jpg"
+					},
+					{
+						"rank":3,
+						"text":"Subaru Impreza WRX 4dr",
+						"img":"wrx.jpg"
+					}
+				]
+	},
+	{
+		"category": "performance suv",
+		"data": [
+					{
+						"rank":1,
+						"text":"Cadillac SRX V8",
+						"img":"caynenne.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Porsche Cayenne S",
+						"img":"srx.jpg"
+					},
+					{
+						"rank":3,
+						"text":"BMW X5 4.4i",
+						"img":"x5.jpg"
+					}
+				]
+	},
+	{
+		"category": "fuel saving mini van",
+		"data": [
+					{
+						"rank":1,
+						"text":"Toyota Sienna XLE Limited",
+						"img":"sienna.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Dodge Caravan SE",
+						"img":"caravan.jpg"
+					},
+					{
+						"rank":3,
+						"text":"Nissan Quest S",
+						"img":"quest.jpg"
+					}
+				]
+	},
+	{
+		"category": "best budget winter AWD",
+		"data": [
+					{
+						"rank":1,
+						"text":"Suzuki Aerio SX",
+						"img":"aerio.jpg"
+					},
+					{
+						"rank":2,
+						"text":"Suzuki Vitara LX",
+						"img":"vitara.jpg"
+					},
+					{
+						"rank":3,
+						"text":"Honda Element LX",
+						"img":"element.jpg"
+					}
+				]
+	}
+	
+]
+

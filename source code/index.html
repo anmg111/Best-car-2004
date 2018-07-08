@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Draw</title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet" data-semver="3.0.1" data-require="normalize@*" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://code.jquery.com/jquery.js"></script>
+    <style>
+     
+    </style>
+  </head>
+
+  <body>
+	
+	<section class="toptitle">
+		<center><h1>Best Automotive Vehicle 2004</h1></center>
+	</section>
+	<h2>Overview</h2>
+	<br>
+	<br>
+	<section class="piessection">
+		<div class="piesdiv">
+			<div id="pie1"></div>
+				<center><h5>Car type</h5></center>
+			</div>
+			<div class="piesdiv">
+				<div id="pie2"></div>
+				<center><h5>Drivetrain</h5></center>
+			</div>
+			<div class="piesdiv">
+				<div id="pie3"></div>
+				<center><h5>Country</h5></center>
+			</div>
+		</div>
+	</section>
+	<hr>
+	<h2>Ranking</h2>
+	<br>
+	<br>
+	<section class="ranksection">
+		
+	</section>
+    <script data-require="d3@*" data-semver="3.4.6" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.6/d3.min.js"></script>
+    <script>
+	/*
+	* draw pie chart
+	* @divname: piechar div id
+	* @filename: data file
+	* @tooltip: tooltip id
+	* @type: data type
+	*/
+      function drawPie(divname,filename,tooltip,type){
+        'use strict';
+        var width = 300;
+        var height = 300;
+        var radius = Math.min(width, height) / 2;
+        var donutWidth = 75;
+        var legendRectSize = 18;
+        var legendSpacing = 4;
+
+        var color = d3.scale.category20();// color category
+
+        var svg = d3.select(divname) //add svg to div
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height)
+          .append('g')
+          .attr('transform', 'translate(' + (width / 2) + 
+            ',' + (height / 2) + ')');
+
+        var arc = d3.svg.arc()
+          .innerRadius(radius - donutWidth)
+          .outerRadius(radius);
+
+        var pie = d3.layout.pie()
+          .value(function(d) { return d.count; })
+          .sort(null);
+
+        var tooltip = d3.select(divname)                               // build tooltip
+          .append('div')                                                // 
+          .attr('class', tooltip);                                    //
+        tooltip.append('div')                                           // add tooltip img
+          .attr('class', 'toolimg');                
+        tooltip.append('div')                                           // add tooltip label
+          .attr('class', 'label');                                      // 
+             
+        tooltip.append('div')                                           // 
+          .attr('class', 'count');                                      // add tooltip count
+
+        tooltip.append('div')                                           //
+          .attr('class', 'percent');                                    // add percent
+		// get data from csv
+        d3.csv("./datas/"+filename, function(error, dataset) {
+          dataset.forEach(function(d) {
+            d.count = +d.count;
+          });
+		//draw piechart
+          var path = svg.selectAll('path')
+            .data(pie(dataset))
+            .enter()
+            .append('path')
+            .attr('d', arc)
+            .attr('fill', function(d, i) { 
+              return color(d.data.label); 
+            });
+		//add mouse over action
+          path.on('mouseover', function(d) {                            
+            var total = d3.sum(dataset.map(function(d) {               // get sum of count  
+              return d.count;                                           
+            }));                                                       
+            var percent = Math.round(1000 * d.data.count / total) / 10; // cal percent
+			tooltip.select('.toolimg').html('<img src="images/' + type + '/' + d.data.label + '.png" width="90%" />'); //add img to tooltip
+            tooltip.select('.label').html(d.data.label);                // add label to tooltip
+            tooltip.select('.count').html(d.data.count);                // add count to tooltip
+            tooltip.select('.percent').html(percent + '%');             // add percent to tooltip
+            tooltip.style('display', 'block');			//
+				
+          });                                                           
+          
+          path.on('mouseout', function() {                              // add mouse out action
+            tooltip.style('display', 'none');                           
+          });                                                           
+          //add legend on center of piechart
+          var legend = svg.selectAll('.legend')
+            .data(color.domain())
+            .enter()
+            .append('g')
+            .attr('class', 'legend')
+            .attr('transform', function(d, i) {
+              var height = legendRectSize + legendSpacing;
+              var offset =  height * color.domain().length / 2;
+              var horz = -2 * legendRectSize;
+              var vert = i * height - offset;
+              return 'translate(' + horz + ',' + vert + ')';
+            });
+		// add rect on piechart
+          legend.append('rect')
+            .attr('width', legendRectSize)
+            .attr('height', legendRectSize)                                   
+            .style('fill', color)
+            .style('stroke', color);
+         //add text on piechart   
+          legend.append('text')
+            .attr('x', legendRectSize + legendSpacing)
+            .attr('y', legendRectSize - legendSpacing)
+            .text(function(d) { return d; });
+
+        });
+
+      };
+	  drawPie("#pie1","pie1data.csv","tooltip","car type");//draw car type pic
+	  drawPie("#pie2","pie2data.csv","tooltip1","drive type");//draw drive type pic 
+	  drawPie("#pie3","pie3data.csv","tooltip2","country"); // draw country type pic
+	  function drawRank(){
+		//get data from rank.json
+		d3.json("./datas/rank.json", function(error, data) {
+			$(".ranksection").html("");
+			for(var i=0;i<data.length;i++){
+				/*dynamic draw rank div*/
+				var item = $('<div class="rankdiv well"><div class="celltitle"><center><h5>'+data[i].category  +'</h5></center><br></div><div class="cellleft"><img class="imgleft" id="img'+ i +'" src="images/'+data[i].category  +'/'+ data[i]['data'][0]["img"] +'" /></div><div class="cellright"><p class="list" id="p-'+ i +'-0"><input id="ip-'+ i +'-0" type="hidden" value="images/'+data[i].category  +'/'+ data[i]['data'][0]["img"] +'"/> <span class="badge pull-right">1</span>&nbsp;&nbsp;'+ data[i]['data'][0]["text"] +' </p><p class="list" id="p-'+ i +'-1"><input id="ip-'+ i +'-1" type="hidden" value="images/'+data[i].category  +'/'+ data[i]['data'][1]["img"] +'"/> <span class="badge pull-right">2</span>&nbsp;&nbsp;'+ data[i]['data'][1]["text"] +'</p><p class="list" id="p-'+ i +'-2"><input id="ip-'+ i +'-2" type="hidden" value="images/'+data[i].category  +'/'+ data[i]['data'][2]["img"] +'"/> <span class="badge pull-right">3</span>&nbsp;&nbsp;'+ data[i]['data'][2]["text"] +'</p></div></div>');
+				$(".ranksection").append(item);
+				
+				
+				
+				
+			}
+		  
+		});
+	  }
+	  drawRank();
+	  // when the p is clicked ,change img
+	  $(".ranksection").on("click","p", function() {
+		var name = $(this).attr("id");//get p name
+		var src = $('#i'+name).val();//get img src from hidden input
+		var listarr = name.split("-");//get index of div
+		console.log(listarr[1]);
+		$("#img"+listarr[1]).attr('src',src); //draw img on the div
+		console.log(src);
+	  });
+    </script>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+</html>

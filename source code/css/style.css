@@ -1,0 +1,135 @@
+/* set the CSS */
+body{margin: 0px auto;width:960px;}
+h1{font-size:30px;font-stretch: margin:0px;}
+h2{font-size:25px;margin:0px;}
+h4{font-size:23px;margin:0px;}
+h5{font-size:20px;margin:0px;padding-left:10px;text-transform:capitalize;}
+h6{font-size:15px;margin:0px;padding-left:10px;}
+p{text-transform:capitalize;}
+.label{text-transform:capitalize;}
+.toptitle{
+	height:100px;
+	line-height:100px;
+}
+.piesdiv{
+	width:320px;
+	float:left;
+	height:400px;
+}
+.ranksection{
+	width:100%;
+}
+.rankdiv{
+	width:430px;
+	height:220px;
+	float:left;
+	margin-left:10px;
+	font-size:10px;
+}
+.celltitle{
+	width:100%;
+}
+.well {
+    min-height: 20px;
+    padding: 2px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    border-radius: 6px;
+}
+.cellleft{
+	float:left;
+	width:40%;
+	height:100px; 
+	padding:5px;
+}
+.cellright{
+	float:left;
+	width:55%;
+	height:100px;
+	vertical-align:middle;  
+}
+.badge {
+    display: inline-block;
+    min-width: 30px;
+	min-height: 30px;
+
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: blue;
+    border-radius: 15px;
+}
+.pull-right {
+    float: left;
+}
+.list{
+	height:30px;
+	line-height:30px
+}
+.imgleft{
+	margin-top:10px;
+	width:90%;
+	height:auto;
+}
+#chart {                                                         
+        height: 360px;                                                  
+        position: relative;                                            
+        width: 360px;                                                  
+      }                                                                 
+      .tooltip {                                                        
+        background: #eee;                                               
+        box-shadow: 0 0 5px #999999;                                     
+        color: #333;                                                     
+        display: none;                                                   
+        font-size: 12px;                                                 
+        margin-left:100px;                                            
+        padding: 10px;                                                   
+        position: absolute;                                              
+        text-align: center;                                              
+        top: 300px;                                                       
+        width: 80px;                                                     
+        z-index: 10;                                                     
+      }      
+	.tooltip1 {                                                         
+			background: #eee;                                                
+			box-shadow: 0 0 5px #999999;                                     
+			color: #333;                                                     
+			display: none;                                                   
+			font-size: 12px;                                                 
+			margin-left:100px;           												    
+			padding: 10px;                                                   
+			position: absolute;                                              
+			text-align: center;                                              
+			top: 300px;                                                       
+			width: 80px;                                                     
+			z-index: 10;                                                     
+		  }     
+ 	   
+	  .tooltip2 {                                                         
+        background: #eee;                                                
+        box-shadow: 0 0 5px #999999;                                     
+        color: #333;                                                     
+        display: none;                                                   
+        font-size: 12px;                                                 
+        margin-left:100px;                                                      
+        padding: 10px;                                                   
+        position: absolute;                                              
+        text-align: center;                                              
+        top: 300px;                                                       
+        width: 80px;                                                     
+        z-index: 10;                                                     
+      }      
+      .legend {
+        font-size: 12px;
+      }
+      rect {
+        stroke-width: 2;
+      }
